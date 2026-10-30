@@ -1,0 +1,36 @@
+[
+  {
+    "repo": "portfolio-risk-and-derivatives",
+    "id": "historical-risk",
+    "title": "Historical VaR & Risk Contribution",
+    "role": "Market risk · Portfolio oversight",
+    "question": "How often does a rolling historical loss estimate fail?",
+    "method": "Equal-weight six equity style portfolios, rebalanced monthly, gross of costs. Each monthly 95% VaR and expected shortfall estimate uses only the preceding 60 months. Quantile uses floor(0.05 × (n−1)); tail average includes observations at or below that quantile. Variance contributions use the 2010–2025 covariance matrix. Examine 2008 and 2020 directly in results.",
+    "result": "14 of 252 months breached the rolling loss threshold (5.56%). Portfolio risk contributions sum to 100%.",
+    "limits": "A 60-month sample provides very few tail observations. VaR is a one-month return-loss estimate, not a daily measure or a maximum possible loss. Six equity styles offer limited cross-asset diversification.",
+    "metrics": [
+      "Breach rate 5.56%",
+      "252 rolling observations",
+      "60-month lookback"
+    ],
+    "source": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+    "period": "2000–2025 monthly inputs; rolling VaR evaluation 2005–2025"
+  },
+  {
+    "repo": "portfolio-risk-and-derivatives",
+    "id": "option-hedging",
+    "title": "European Option Pricing & Monthly Hedging",
+    "role": "Derivatives analytics · Model risk",
+    "question": "How large is discrete hedging error on historical return paths?",
+    "method": "Create a total-return index rebased to 100 at each January. Price a hypothetical one-year ATM European call using Black–Scholes, 36 trailing monthly log returns for volatility, and the preceding RF month annualized as a constant financing rate. Sell one call and delta-hedge monthly, with 5bp per dollar traded, including entry and terminal liquidation. Repeat 2010–2025.",
+    "result": "Across 16 historical paths, mean replication error was -0.06 index units; mean absolute error was 1.86.",
+    "limits": "The underlying path is derived from real market total returns; the contract is hypothetical. Prices are model values, not observed option quotes or implied volatilities. Monthly observations miss intramonth hedging risk. The index reinvests dividends, so the model uses no separate dividend yield.",
+    "metrics": [
+      "16 historical paths",
+      "MAE 1.86 index points",
+      "5bp trading cost"
+    ],
+    "source": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+    "period": "2000–2025 monthly data; evaluation 2010–2025"
+  }
+]
